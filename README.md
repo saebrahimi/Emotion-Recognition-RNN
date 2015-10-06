@@ -1,2 +1,2 @@
-# Emotion-Recognition-EmotiW-2015-
+# Emotion-Recognition-EmotiW2015
 Recurrent Neural Networks for Emotion Recognition in Video
