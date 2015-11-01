@@ -1,0 +1,45 @@
+# tmp tex files
+*.aux
+*.bbl
+*.blg
+*.log
+*.nav
+*.out
+*.pdf
+*.snm
+*.toc
+*.tdo
+*.synctex.gz
+
+# backup files
+*~
+*~[0-9]
+*.backup
+.*.swp
+*.zip
+*.zip.1
+
+# Python files and NumPy
+*.pyc
+*.npz
+*.npy
+*.pickle
+
+# data files
+*.th7
+*.bin
+*.model
+*.h5
+*.h5_bak
+
+# img/vid files
+*.jpg
+*.png
+*.bmp
+*.eps
+*.jpeg
+*.gif
+*.
+
+.ropeproject
+!./randomsearch
