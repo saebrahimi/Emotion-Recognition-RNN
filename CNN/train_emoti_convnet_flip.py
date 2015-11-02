@@ -21,7 +21,7 @@ numpy_rng = np.random.RandomState(1)
 theano_rng = RandomStreams(1)
 
 print 'loading data...'
-full_data = np.load('/home/saebr/data/emotiw2015/Datasets/convnet_full_train_data.npz')
+full_data = np.load('/home/usr/data/emotiw2015/Datasets/convnet_full_train_data.npz')
 train_inputs = full_data['train_inputs']
 train_outputs = full_data['train_outputs']
 emoti_trainval_inputs = full_data['val_inputs']
@@ -29,7 +29,7 @@ emoti_trainval_outputs = full_data['val_outputs']
 
 print 'normalizing data...'
 with tables.openFile(
-    '/home/saebr/data/emotiw2015/Datasets/fertfd_mean_std.h5'
+    '/home/usr/data/emotiw2015/Datasets/fertfd_mean_std.h5'
 ) as h5file:
     mean0 = h5file.root.mean0.read()
     std0 = h5file.root.std0.read()
