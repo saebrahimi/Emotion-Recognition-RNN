@@ -1,5 +1,5 @@
 # Emotion-Recognition-EmotiW2015
-Recurrent Neural Networks for Emotion Recognition in Video
+[Recurrent Neural Networks for Emotion Recognition in Video](http://www-etud.iro.umontreal.ca/~michals/pdf/emotion_rnns.pdf)
 
 ## Citation
 If you use (parts of) this code, please cite:  
