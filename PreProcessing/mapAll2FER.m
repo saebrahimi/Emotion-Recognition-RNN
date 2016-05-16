@@ -15,14 +15,14 @@ FERavg = 'FER_48x48_points_avg.mat';
 load(FERavg); base_points = pavg;
 
 OTHERavg = 'EMOTI15_TRAIN_128x128_points_avg.mat'; %change me%
-load(OTHERavg); input_points = pavg+48; %add border of 32 for TFD which results in 160 image size
+load(OTHERavg); input_points = pavg+48; %add border of 48 for EMOTIW (32 is enough for TFD which results in 160 image size)
 
 TFORM = cp2tform(input_points, base_points, 'similarity')
 
 imagefiles = dir([imgdir '*.jpg']); %change me%
 for i=1:length(imagefiles)
     i
-    noisyim = uint8(randi([0,255],[224,224]));
+    noisyim = uint8(randi([0,255],[224,224])); %if TFD second argument is [160,160]
     img = imread([imgdir imagefiles(i).name]);
     if size(img,3)==3
         img = rgb2gray(img);
