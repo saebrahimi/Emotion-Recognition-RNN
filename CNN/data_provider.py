@@ -34,7 +34,7 @@ class EmotionData(object):
                 'emotiw_train_val_test' is used after we found the early stopping
                     epoch to train with all allowed training data
         """
-        assert partitioning in ('convnet', 
+        assert partitioning in ('convnet',
                                 'convnet_full_train',
                                 'rnn_early_stopping',
                                 'emotiw_train_val_test')
@@ -85,20 +85,26 @@ class EmotionData(object):
             (self.test_seq_names,
              self.test_inputs) = self.load_sequence_set(
                  (self.emotiw_test_path, ))
-            
+
         # shuffle training and validation set
         print 'shuffling training set...'
         shuffle_indices = numpy_rng.permutation(self.train_inputs.shape[0])
         self.train_inputs = self.train_inputs[shuffle_indices]
         self.train_outputs = self.train_outputs[shuffle_indices]
-        self.train_seq_names = self.train_seq_names[shuffle_indices]
+        try:
+            self.train_seq_names = self.train_seq_names[shuffle_indices]
+        except AttributeError:
+            pass
         print 'done'
 
         print 'shuffling validation set...'
         shuffle_indices = numpy_rng.permutation(self.val_inputs.shape[0])
         self.val_inputs = self.val_inputs[shuffle_indices]
         self.val_outputs = self.val_outputs[shuffle_indices]
-        self.val_seq_names = self.val_seq_names[shuffle_indices]
+        try:
+            self.val_seq_names = self.val_seq_names[shuffle_indices]
+        except AttributeError:
+            pass
         print 'done'
 
 
@@ -152,13 +158,13 @@ class EmotionData(object):
             print 'processing sequence {0}/{1}'.format(s+1, len(seq_names))
 
             seq_frames = filter(lambda x: x.startswith(seq), files)
-            
+
             label_tmp = os.path.splitext(seq_frames[0])[0].split('_')[-1]
             if label_tmp == '':
                 is_unlabeled = True
             else:
                 label = int(label_tmp)
-            
+
             #print s, seq, seq_frames, label
 
             seq_inputs = np.empty(
